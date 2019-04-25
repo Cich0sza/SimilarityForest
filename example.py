@@ -27,17 +27,17 @@ if __name__ == '__main__':
 
     sim_forest = SimilarityForest(n_estimators=20)
     sim_forest.fit(X_train, y_train)
-    # sf_pred = sim_forest.predict(X_test)
-    sf_pred = sim_forest.predict_probability(X_test)
+    sf_pred = sim_forest.predict(X_test)
+    # sf_pred = sim_forest.predict_probability(X_test)
     print(sf_pred)
     print("Similarity forest")
-    # print(accuracy_score(y_test, sf_pred))
-    # print(confusion_matrix(y_test, sf_pred))
-    #
-    # rf = RandomForestClassifier(n_estimators=20)
-    # rf.fit(X_train, y_train)
-    #
-    # rf_pred = rf.predict(X_test)
-    # print("Random forest")
-    # print(accuracy_score(y_test, rf_pred))
-    # print(confusion_matrix(y_test, rf_pred))
+    print(accuracy_score(y_test, sf_pred))
+    print(confusion_matrix(y_test, sf_pred))
+
+    rf = RandomForestClassifier(n_estimators=20)
+    rf.fit(X_train, y_train)
+
+    rf_pred = rf.predict(X_test)
+    print("Random forest")
+    print(accuracy_score(y_test, rf_pred))
+    print(confusion_matrix(y_test, rf_pred))
